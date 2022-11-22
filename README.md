@@ -57,8 +57,8 @@ We will first create the docker image that will be used in the project
 7) Now lets create the cluster using terraform:\
 `terraform apply -var-file .\global-variables.tfvars -auto-approve`
 
-You can review the status of the cluster by using the following command:\
-`kubectl get all -A`
+    You can review the status of the cluster by using the following command:\
+    `kubectl get all -A`
 
 8) Use Helm to install the Helm Chart.\
 `helm install hextris-chart .\hextris-chart\ --values .\hextris-chart\values.yaml`
