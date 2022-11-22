@@ -36,40 +36,40 @@ Review `global-variables.tfvars` file if you want to modify any predefined value
 
 We will first create the docker image that will be used in the project
 
-1) Stand on the Path you want to have this project saves and use git to clone this repository:
+1) Stand on the Path you want to have this project saves and use git to clone this repository:\
 `git clone https://github.com/davidbretons/K8s_helmchart`
 
-2) Change path to the directory
+2) Change path to the directory\
 `cd K8s_helmchart`
 
-3) Now lets clone Hextris repository
+3) Now lets clone Hextris repository\
 `git clone https://github.com/Hextris/hextris`
 
-4) Now lets create the docker image, for this exercise we will call it 'example/hextris'. This will use the Dockerfile.
+4) Now lets create the docker image, for this exercise we will call it 'example/hextris'. This will use the Dockerfile.\
 `docker build -t example/hextris .`
 
-5) Confirm the image was created using
+5) Confirm the image was created using:\
 `docker images`
 
-6) Now lets initiate Terraform in this project by running the following command:
+6) Now lets initiate Terraform in this project by running the following command:\
 `terraform init`
 
-7) Now lets create the cluster using terraform
+7) Now lets create the cluster using terraform:\
 `terraform apply -var-file .\global-variables.tfvars -auto-approve`
 
-You can review the status of the cluster by using the following command
+You can review the status of the cluster by using the following command:\
 `kubectl get all -A`
 
-8) Use Helm to install the Helm Chart. 
+8) Use Helm to install the Helm Chart.\
 `helm install hextris-chart .\hextris-chart\ --values .\hextris-chart\values.yaml`
 
-9) Declare a port portwarding to be able to open the game in localhost
+9) Declare a port portwarding to be able to open the game in localhost.\
 `kubectl port-forward --namespace default service/hextris-chart 80:80`
 
-10) On a browser navigate to the following url to open the game
+10) On a browser navigate to the following url to open the game:\
 `http://localhost`
 
-11) Once completed. To destroy the cluster execute the following command:
+11) Once completed. To destroy the cluster execute the following command:\
 `terraform destroy -var-file .\global-variables.tfvars -auto-approve`
 
 ## On Windows
