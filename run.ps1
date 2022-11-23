@@ -9,5 +9,5 @@ helm install hextris-chart .\hextris-chart
 Write-Output "Waiting for pods to start..."
 Start-Sleep 20
 Write-Output "Executing command: kubectl port-forward --namespace default service/hextris-chart 80:80"
+Write-Output "Execution Completed. Ctrl+C to terminate port-forwarding."
 kubectl port-forward --namespace default service/hextris-chart 80:80
-Write-Output "Execution Completed."

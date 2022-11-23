@@ -54,7 +54,9 @@ We will first create the docker image that will be used in the project
 6) Now lets initiate Terraform in this project by running the following command:\
 `terraform init`
 
-7) Now lets create the cluster using terraform:\
+
+
+7) Now lets create the cluster using terraform. For Windows you can execute below PowerShell script on this point instead of steps 7-11:\
 `terraform apply -var-file .\global-variables.tfvars -auto-approve`
 
     You can review the status of the cluster by using the following command:\
@@ -72,7 +74,7 @@ We will first create the docker image that will be used in the project
 11) On a browser navigate to the following url to open the game:\
 `http://localhost`
 
-11) Once completed. To destroy the cluster execute the following command:\
+12) Once completed. To destroy the cluster execute the following command:\
 `terraform destroy -var-file .\global-variables.tfvars -auto-approve`
 
 ## On Windows
@@ -93,8 +95,8 @@ helm install hextris-chart .\hextris-chart
 Write-Output "Waiting for pods to start..."
 Start-Sleep 20
 Write-Output "Executing command: kubectl port-forward --namespace default service/hextris-chart 80:80"
-kubectl port-forward --namespace default service/hextris-chart 80:80
 Write-Output "Execution Completed. Ctrl+C to terminate port-forwarding."
+kubectl port-forward --namespace default service/hextris-chart 80:80
 ```
 
 Execute: \
