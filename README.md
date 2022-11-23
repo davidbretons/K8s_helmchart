@@ -60,7 +60,7 @@ We will first create the docker image that will be used in the project
     You can review the status of the cluster by using the following command:\
     `kubectl get all -A`
 
-8) We will load the local docker image to the kind cluster so it will be available.
+8) We will load the local docker image to the kind cluster so it will be available.\
 `kind load docker-image hextris:0.1.0 --name cluster-local`
 
 9) Use Helm to install the Helm Chart.\
