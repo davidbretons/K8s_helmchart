@@ -46,7 +46,7 @@ We will first create the docker image that will be used in the project
 `git clone https://github.com/Hextris/hextris`
 
 4) Now lets create the docker image, for this exercise we will call it 'hextris:0.1.0'. This will use the Dockerfile.\
-`docker build -t hextris:0.1.0 .`
+`docker build -t hextris:0.1.0 . --no-cache`
 
 5) Confirm the image was created using:\
 `docker images`
