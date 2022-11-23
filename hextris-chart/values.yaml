@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: example/hextris
-  pullPolicy: Always
+  repository: hextris
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  tag: "0.1.0"
 
 imagePullSecrets: []
 nameOverride: "hextris-app"

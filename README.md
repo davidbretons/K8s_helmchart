@@ -45,8 +45,8 @@ We will first create the docker image that will be used in the project
 3) Now lets clone Hextris repository\
 `git clone https://github.com/Hextris/hextris`
 
-4) Now lets create the docker image, for this exercise we will call it 'example/hextris'. This will use the Dockerfile.\
-`docker build -t example/hextris .`
+4) Now lets create the docker image, for this exercise we will call it 'hextris:0.1.0'. This will use the Dockerfile.\
+`docker build -t hextris:0.1.0 .`
 
 5) Confirm the image was created using:\
 `docker images`
@@ -60,13 +60,16 @@ We will first create the docker image that will be used in the project
     You can review the status of the cluster by using the following command:\
     `kubectl get all -A`
 
-8) Use Helm to install the Helm Chart.\
-`helm install hextris-chart .\hextris-chart\ --values .\hextris-chart\values.yaml`
+8) We will load the local docker image to the kind cluster so it will be available.
+`kind load docker-image hextris:0.1.0 --name cluster-local`
 
-9) Declare a port portwarding to be able to open the game in localhost.\
+9) Use Helm to install the Helm Chart.\
+`helm install hextris-chart .\hextris-chart`
+
+10) Declare a port portwarding to be able to open the game in localhost.\
 `kubectl port-forward --namespace default service/hextris-chart 80:80`
 
-10) On a browser navigate to the following url to open the game:\
+11) On a browser navigate to the following url to open the game:\
 `http://localhost`
 
 11) Once completed. To destroy the cluster execute the following command:\
